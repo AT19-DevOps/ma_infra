@@ -2,15 +2,16 @@
 version: '3.5'
 services:
   jenkins_server:
-    image: jenkins/jenkins
+    image: jenkins/jenkins:2.393
     container_name: jenkins_server
     restart: always
     ports:
       - "8080:8080"
-      - "5000:5000"
+      - "50000:50000"
     volumes:
       - jenkins_data:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker-compose
       - /usr/bin/docker:/usr/bin/docker
       - /.local:/.local
 
